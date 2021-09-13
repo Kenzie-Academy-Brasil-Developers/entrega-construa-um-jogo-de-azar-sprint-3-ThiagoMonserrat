@@ -6,8 +6,6 @@ document.querySelector("#joquempo").addEventListener("click", function () {
 document.querySelector(".rockPaperScissors div").addEventListener("click", function(event) {
     if(event.target.tagName === "IMG" || event.target.tagName === "FIGCAPTION"){
         const options = document.querySelectorAll(".rockPaperScissors figure");
-
-
         let optionPlayer = event.path[1].cloneNode(true);
         let optionComputer = options[parseInt(Math.random() * (3))].cloneNode(true);
         Joquempo(optionPlayer, optionComputer);
@@ -21,11 +19,11 @@ function Joquempo(optionPlayer, optionComputer){
     textResult.textContent = ResultJoquempo(optionPlayer.className, optionComputer.className);
     result.querySelector("div").textContent = "";
     optionPlayer.querySelector("figcaption").textContent = "Você";
-    optionComputer.querySelector("figcaption").textContent = "Computador";
+    optionComputer.querySelector("figcaption").textContent = "Eu";
     result.querySelector("section").scrollTop = 0;
     result.querySelector("div").appendChild(optionPlayer);
     result.querySelector("div").appendChild(optionComputer);
-    result.querySelector("button").textContent = "De novo";
+    result.querySelector("button").textContent = "Reset";
     result.querySelector("button").addEventListener("click", function () {
         result.classList.remove("display--flex");
         result.querySelector("div").textContent = "";
